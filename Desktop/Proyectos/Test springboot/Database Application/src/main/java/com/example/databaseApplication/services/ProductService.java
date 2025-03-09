@@ -2,6 +2,7 @@ package com.example.databaseApplication.services;
 
 import com.example.databaseApplication.entities.Category;
 import com.example.databaseApplication.entities.Product;
+import com.example.databaseApplication.entities.User;
 import com.example.databaseApplication.repositories.CategoryRepository;
 import com.example.databaseApplication.repositories.ProductRepository;
 import com.example.databaseApplication.repositories.UserRepository;
@@ -9,6 +10,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -47,5 +49,19 @@ public class ProductService {
         product.setCategory(category);
         category.addProduct(product);
         productRepository.save(product);
+    }
+
+    @Transactional
+    public void addProductsToWishlist() {
+        User user = userRepository.findById(2L).orElseThrow();
+        System.out.println(user);
+    }
+
+    @Transactional
+    public void deleteProduct() {
+        Product product = productRepository.findById(1L).orElseThrow();
+        userRepository.findAll().forEach(user -> user.removeProductFromWishlist(product));
+        categoryRepository.findAll().forEach(category -> category.removeProduct(product));
+        productRepository.delete(product);
     }
 }

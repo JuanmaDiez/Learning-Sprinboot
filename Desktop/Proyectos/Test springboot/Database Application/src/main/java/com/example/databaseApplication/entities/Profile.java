@@ -16,13 +16,13 @@ public class Profile {
     private String bio;
 
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "date_of_birth")
-    private LocalDate date_of_birth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "loyalty_points")
-    private Integer loyalty_points;
+    private Integer loyaltyPoints;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
@@ -30,7 +30,7 @@ public class Profile {
     private User user;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -38,35 +38,35 @@ public class Profile {
     }
 
     public String getBio() {
-        return bio;
+        return this.bio;
     }
 
     public void setBio(String bio) {
         this.bio = bio;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public LocalDate getDate_of_birth() {
-        return date_of_birth;
+    public LocalDate getDateOfBirth() {
+        return this.dateOfBirth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public Integer getLoyalty_points() {
-        return loyalty_points;
+    public Integer getloyaltyPoints() {
+        return this.loyaltyPoints;
     }
 
-    public void setLoyalty_points(Integer loyalty_points) {
-        this.loyalty_points = loyalty_points;
+    public void setLoyaltyPointsloyaltyPoints(Integer loyaltyPoints) {
+        this.loyaltyPoints = loyaltyPoints;
     }
 
     public User getUser() {
@@ -82,9 +82,9 @@ public class Profile {
         return "Profile{" +
                 "id=" + id +
                 ", bio='" + bio + '\'' +
-                ", phone_number='" + phone_number + '\'' +
-                ", date_of_birth=" + date_of_birth +
-                ", loyalty_points=" + loyalty_points +
+                ", phone_number='" + phoneNumber + '\'' +
+                ", date_of_birth=" + dateOfBirth +
+                ", loyalty_points=" + loyaltyPoints +
                 ", user=" + (user != null ? user.getName() : "null") +
                 '}';
     }
